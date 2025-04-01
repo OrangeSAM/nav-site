@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 基础URL，根据实际部署环境配置
-const BASE_URL = "https://hb03826.github.io/nav-site";
+const BASE_URL = "https://orangesam.github.io/nav-site";
 
 // 生成sitemap XML内容
 function generateSitemapXML() {
