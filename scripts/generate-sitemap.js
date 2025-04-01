@@ -24,15 +24,27 @@ function generateSitemapXML() {
   xmlContent.push("    <priority>1.0</priority>");
   xmlContent.push("  </url>");
 
-  // 遍历所有分类和站点
+  // 遍历所有分类
   sites.forEach((category) => {
+    // 为每个分类生成一个URL
+    xmlContent.push("  <url>");
+    xmlContent.push(
+      `    <loc>${BASE_URL}/#${encodeURIComponent(category.category)}</loc>`
+    );
+    xmlContent.push("    <changefreq>weekly</changefreq>");
+    xmlContent.push("    <priority>0.8</priority>");
+    xmlContent.push("  </url>");
+
+    // 为该分类下的每个站点生成URL
     category.sites.forEach((site) => {
       xmlContent.push("  <url>");
       xmlContent.push(
-        `    <loc>${BASE_URL}/#${encodeURIComponent(category.category)}</loc>`
+        `    <loc>${BASE_URL}/#${encodeURIComponent(
+          category.category
+        )}/${encodeURIComponent(site.name)}</loc>`
       );
-      xmlContent.push("    <changefreq>weekly</changefreq>");
-      xmlContent.push("    <priority>0.8</priority>");
+      xmlContent.push("    <changefreq>monthly</changefreq>");
+      xmlContent.push("    <priority>0.6</priority>");
       xmlContent.push("  </url>");
     });
   });
