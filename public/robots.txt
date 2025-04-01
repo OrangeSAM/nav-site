@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hb03826.github.io/nav-site/sitemap.xml
